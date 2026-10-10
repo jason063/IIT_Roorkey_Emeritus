@@ -9,6 +9,7 @@ self-contained and runs end to end on Vocareum.
 import importlib
 import os
 import sys
+from dotenv import load_dotenv
 
 DEMOS = [
     ("demo_first_call", "Your first LLM call"),
@@ -19,6 +20,7 @@ DEMOS = [
 
 
 def main():
+    load_dotenv()  # Load .env file if present
     if not os.getenv("OPENAI_API_KEY"):
         print("OPENAI_API_KEY is not set.")
         print("On Vocareum: open a fresh terminal (the key is pre-set).")
